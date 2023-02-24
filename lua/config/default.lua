@@ -6,6 +6,7 @@ g.shiftwidth = 4
 g.tabstop = 4
 g.softtabstop = 4
 g.textwidth =120
+vim.b.shiftwidth = 4
 g.encoding = "UTF-8"
 -- Remap leader and local leader to <Space>
 api.nvim_set_keymap("", "<Space>", "<Nop>", { noremap = true, silent = true })

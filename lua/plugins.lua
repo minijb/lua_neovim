@@ -41,8 +41,12 @@ require("lazy").setup({
 		end
 	},
 	'kdheepak/lazygit.nvim',
---	"folke/which-key.nvim",
-	'linty-org/key-menu.nvim',
+	{ "folke/which-key.nvim",
+	config = function()
+		require("config.plugins.whichkey")
+	end
+	},
+--	'linty-org/key-menu.nvim',
 
 	-- status line
 	{"nvim-lualine/lualine.nvim",event = 'VimEnter',
@@ -56,9 +60,21 @@ require("lazy").setup({
 		require("nvim-gps").setup()
 	end
 	},
+	"ibhagwan/fzf-lua",
+	{'nvim-telescope/telescope.nvim', tag = '0.1.1',
+	dependencies = { 'nvim-lua/plenary.nvim' }},
+	
+	-- ui
+	{"stevearc/dressing.nvim",event="BufEnter",
+	config = function()
+		require("dressing").setup {select = {backend = { "telescope", "fzf", "builtin" },}}
+	end},
 
-
-
-
+	-- buffer line
+	-- TODO: 有一些需要配置
+	{"akinsho/nvim-bufferline.lua",event="BufReadPre",
+	config = function()
+		require("config.plugins.bufferline").setup()
+	end},
 
 })
