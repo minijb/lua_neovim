@@ -15,4 +15,5 @@ vim.keymap.set("n", "<leader>p",'"+p',default("paste"))
 vim.keymap.set("n","<leader>y",'"+y',default("yank"))
 
 vim.keymap.set("n", "<leader>tt", ":NvimTreeToggle<enter>", default("nvim-tree"))
-vim.keymap.set("n", "<leader>tfa", ":NvimTreeCollapse<enter>", default("tree fold"))
+vim.keymap.set("n", "<leader>tff", ":NvimTreeCollapse<enter>", default("tree fold"))
+vim.keymap.set("n", "<leader>tfo", ":<enter>", default("tree fold"))
