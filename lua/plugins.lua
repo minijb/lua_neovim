@@ -30,6 +30,7 @@ require("lazy").setup({
 		end
 	},
 	{"nvim-treesitter/nvim-treesitter", build = ":TSUpdate",
+	dependencies = {'nvim-treesitter/nvim-treesitter-textobjects'},
 	config = function()
 		require("config.plugins.treesitter")
 	end
@@ -77,4 +78,19 @@ require("lazy").setup({
 		require("config.plugins.bufferline").setup()
 	end},
 
+	-- motion
+	{'andymass/vim-matchup', 
+	config = function()
+		vim.g.matchup_matchparen_offscreen = { method = "popup" }
+	end},
+	-- word motion plus
+	--"chaoren/vim-wordmotion",
+	-- object motion
+	"wellle/targets.vim",
+	-- easy motion
+	{ "phaazon/hop.nvim",  cmd = {"HopPattern","HopChar2","HopChar1"},
+	config = function()
+		require("hop").setup {}
+	end},
+--	{"ggandor/lightspeed.nvim",config = function() require("lightspeed").setup{} end},
 })

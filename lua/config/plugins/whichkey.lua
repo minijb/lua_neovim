@@ -47,6 +47,8 @@
 	b = {"<cmd>FzfLua buffers<cr>", "find buffers"},
 	l = {"<cmd>FzfLua blines<cr>", "find lines"},
 	h = {"<cmd>Telescope help_tags", "find tages"},
+	w = {"<cmd>HopChar2<cr>","find word"},
+	p = {"<cmd>HopPattern<cr>","find Pattern"},
     },
 
     g = {
