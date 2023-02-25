@@ -93,4 +93,24 @@ require("lazy").setup({
 		require("hop").setup {}
 	end},
 --	{"ggandor/lightspeed.nvim",config = function() require("lightspeed").setup{} end},
+	
+	-- completion
+	-- TODO:config
+	{"ms-jpq/coq_nvim",branch="coq", event="InsertEnter", lazy = true,build=":COQdeps",
+	dependencies = {{ "ms-jpq/coq.artifacts", branch = "artifacts" },{ "ms-jpq/coq.thirdparty", branch = "3p"}},
+	config = function()
+		require("config.plugins.coq").setup()
+	end,enable=true},
+
+	-- TODO:config
+	{"hrsh7th/nvim-cmp",event="InsertEnter",lazy=true,config=function() require("config.plugins.cmp") end,
+	dependencies={'L3MON4D3/LuaSnip',"hrsh7th/cmp-buffer","hrsh7th/cmp-path", "hrsh7th/cmp-nvim-lua",  
+		"ray-x/cmp-treesitter",  "hrsh7th/cmp-cmdline", "saadparwaiz1/cmp_luasnip",
+		"hrsh7th/cmp-calc", "f3fora/cmp-spell",  "hrsh7th/cmp-emoji",
+		{"L3MON4D3/LuaSnip", dependencies= "friendly-snippets",
+		config = function() require("config.plugins.luasnip").setup() end,},
+		"rafamadriz/friendly-snippets",
+		enable = true,},
+	},
+
 })

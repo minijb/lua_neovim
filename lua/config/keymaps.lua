@@ -47,7 +47,7 @@ keymap("n", "<ESC>", ":nohlsearch<Bar>:echo<CR>", default_opts)
 --keymap("n", "<leader><Down>", ":resize +5<CR>", default_opts)
 
 keymap("n", "<c-l>","g_", default_opts)
-keymap("n", "<c-h>", "0", default_opts)
+keymap("n", "<c-h>", "^", default_opts)
 
 -- tree.nvim
 --keymap("n", "<leader>tt", ":NvimTreeToggle<enter>", default_opts)

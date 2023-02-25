@@ -23,6 +23,7 @@ opt.smartcase = true -- Smart case
 opt.updatetime = 250 --Decrease update time
 opt.signcolumn = "yes" -- Always show sign column
 opt.clipboard = "unnamedplus" -- Access system clipboard
+--opt.wildmode = "longest,list"
 
 g.mapleader = "\\"
 g.maplocalleader = "\\"
