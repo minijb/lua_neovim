@@ -53,4 +53,3 @@ keymap("n", "<c-h>", "^", default_opts)
 --keymap("n", "<leader>tt", ":NvimTreeToggle<enter>", default_opts)
 --keymap("n", "<leader>tfa", ":NvimTreeCollapse<enter>", default_opts)
 --keymap("n", "<leader>tfa", ":NvimTreeCollapse<enter>", default_opts)
-

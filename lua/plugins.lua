@@ -15,7 +15,8 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	'nvim-tree/nvim-web-devicons',
-	
+
+
 	-- dashboaed
 	{"goolord/alpha-nvim",
 		config = function()
@@ -29,6 +30,8 @@ require("lazy").setup({
 			vim.cmd "colorscheme catppuccin-frappe"
 		end
 	},
+
+	-- TODO:af work but if dont work
 	{"nvim-treesitter/nvim-treesitter", build = ":TSUpdate",
 	dependencies = {'nvim-treesitter/nvim-treesitter-textobjects'},
 	config = function()
@@ -56,7 +59,8 @@ require("lazy").setup({
 			require('config.plugins.lualine')
 		end
 	},
-	{ "SmiteshP/nvim-gps", 
+	{ "SmiteshP/nvim-gps",
+	dependencies={"nvim-treesitter"}, 
 	config = function()
 		require("nvim-gps").setup()
 	end
@@ -101,16 +105,42 @@ require("lazy").setup({
 	config = function()
 		require("config.plugins.coq").setup()
 	end,enable=true},
-
+	
 	-- TODO:config
-	{"hrsh7th/nvim-cmp",event="InsertEnter",lazy=true,config=function() require("config.plugins.cmp") end,
-	dependencies={'L3MON4D3/LuaSnip',"hrsh7th/cmp-buffer","hrsh7th/cmp-path", "hrsh7th/cmp-nvim-lua",  
+	{"hrsh7th/nvim-cmp",event="InsertEnter",lazy=true,
+	config=function() require("config.plugins.cmp") end,
+	dependencies={"hrsh7th/cmp-buffer","hrsh7th/cmp-path", "hrsh7th/cmp-nvim-lua",  
 		"ray-x/cmp-treesitter",  "hrsh7th/cmp-cmdline", "saadparwaiz1/cmp_luasnip",
-		"hrsh7th/cmp-calc", "f3fora/cmp-spell",  "hrsh7th/cmp-emoji",
-		{"L3MON4D3/LuaSnip", dependencies= "friendly-snippets",
+		"hrsh7th/cmp-calc", "f3fora/cmp-spell",  "hrsh7th/cmp-emoji","hrsh7th/cmp-nvim-lsp",
+		{"L3MON4D3/LuaSnip", dependencies= "rafamadriz/friendly-snippets",
 		config = function() require("config.plugins.luasnip").setup() end,},
 		"rafamadriz/friendly-snippets",
-		enable = true,},
+		enable = true,},enable=true,
 	},
 
+	-- pairs
+	{"windwp/nvim-autopairs",
+	dependencies={"nvim-treesitter"},
+	config=function() require("config.plugins.autopair").setup() end},
+	{"RRethy/nvim-treesitter-endwise",event="InsertEnter"},
+
+
+	-- TODO:add coq.nvim
+	-- TODO:lsp and treesitter should config + lua lsp + vim
+	{"neovim/nvim-lspconfig",lazy=true,dependencies={"ray-x/lsp_signature.nvim"},
+	config = function()
+	  	require("config.plugins.lsp")
+	end,},
+	{"williamboman/mason.nvim",
+	config = function()
+		require("config.plugins.mason").setup()
+	end},
+	{ "williamboman/mason-lspconfig.nvim",
+	config = function()
+		require("config.plugins.mason_lsp")
+	end},
+
 })
+
+
+

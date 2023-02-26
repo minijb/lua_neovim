@@ -2,11 +2,17 @@ local api = vim.api
 local g = vim.g
 local opt = vim.opt
 
-g.shiftwidth = 4
-g.tabstop = 4
-g.softtabstop = 4
-g.textwidth =120
-vim.b.shiftwidth = 4
+vim.g.shiftwidth = 4
+vim.g.tabstop = 4
+vim.g.softtabstop = 4
+vim.g.textwidth =120
+vim.g.expandtab=true
+vim.g.autoindent=true
+
+vim.bo.softtabstop=4
+vim.bo.expandtab=true
+vim.bo.tabstop=4
+vim.bo.shiftwidth=4
 g.encoding = "UTF-8"
 -- Remap leader and local leader to <Space>
 api.nvim_set_keymap("", "<Space>", "<Nop>", { noremap = true, silent = true })
